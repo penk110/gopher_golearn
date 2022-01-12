@@ -1,0 +1,52 @@
+WORK=/var/folders/wp/0kxj_ktn6xqg0qrrrty0jcr80000gn/T/go-build989517947
+mkdir -p $WORK/b001/
+cat >$WORK/b001/importcfg << 'EOF' # internal
+# import config
+packagefile fmt=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/fmt.a
+packagefile runtime=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/runtime.a
+EOF
+cd /Users/zhang/gopath/src/zyphub/gopher_golearn/debug_dlv_disassemble
+/Users/zhang/sdk/go1.16/pkg/tool/darwin_amd64/compile -o $WORK/b001/_pkg_.a -trimpath "$WORK/b001=>" -p main -complete -buildid Em6IkI-K6hjlXZiSa1if/Em6IkI-K6hjlXZiSa1if -goversion go1.16 -D _/Users/zhang/gopath/src/zyphub/gopher_golearn/debug_dlv_disassemble -importcfg $WORK/b001/importcfg -pack -c=4 ./dlv_disassemble.go
+/Users/zhang/sdk/go1.16/pkg/tool/darwin_amd64/buildid -w $WORK/b001/_pkg_.a # internal
+cp $WORK/b001/_pkg_.a /Users/zhang/Library/Caches/go-build/ee/eedff1563547045aa26f412c54c18c1c5485b1bda14fb6bd7f8d7b26d237d949-d # internal
+cat >$WORK/b001/importcfg.link << 'EOF' # internal
+packagefile command-line-arguments=$WORK/b001/_pkg_.a
+packagefile fmt=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/fmt.a
+packagefile runtime=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/runtime.a
+packagefile errors=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/errors.a
+packagefile internal/fmtsort=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/fmtsort.a
+packagefile io=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/io.a
+packagefile math=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/math.a
+packagefile os=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/os.a
+packagefile reflect=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/reflect.a
+packagefile strconv=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/strconv.a
+packagefile sync=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/sync.a
+packagefile unicode/utf8=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/unicode/utf8.a
+packagefile internal/bytealg=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/bytealg.a
+packagefile internal/cpu=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/cpu.a
+packagefile runtime/internal/atomic=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/runtime/internal/atomic.a
+packagefile runtime/internal/math=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/runtime/internal/math.a
+packagefile runtime/internal/sys=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/runtime/internal/sys.a
+packagefile internal/reflectlite=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/reflectlite.a
+packagefile sort=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/sort.a
+packagefile math/bits=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/math/bits.a
+packagefile internal/oserror=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/oserror.a
+packagefile internal/poll=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/poll.a
+packagefile internal/syscall/execenv=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/syscall/execenv.a
+packagefile internal/syscall/unix=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/syscall/unix.a
+packagefile internal/testlog=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/testlog.a
+packagefile io/fs=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/io/fs.a
+packagefile sync/atomic=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/sync/atomic.a
+packagefile syscall=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/syscall.a
+packagefile time=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/time.a
+packagefile internal/unsafeheader=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/unsafeheader.a
+packagefile unicode=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/unicode.a
+packagefile internal/race=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/internal/race.a
+packagefile path=/Users/zhang/sdk/go1.16/pkg/darwin_amd64/path.a
+EOF
+mkdir -p $WORK/b001/exe/
+cd .
+/Users/zhang/sdk/go1.16/pkg/tool/darwin_amd64/link -o $WORK/b001/exe/a.out -importcfg $WORK/b001/importcfg.link -buildmode=exe -buildid=Lp-bTYblh9B55pgSS-lj/Em6IkI-K6hjlXZiSa1if/G9Cq4_UU8_ebTR6LYFhl/Lp-bTYblh9B55pgSS-lj -extld=clang $WORK/b001/_pkg_.a
+/Users/zhang/sdk/go1.16/pkg/tool/darwin_amd64/buildid -w $WORK/b001/exe/a.out # internal
+mv $WORK/b001/exe/a.out dlv_disassemble
+rm -r $WORK/b001/
